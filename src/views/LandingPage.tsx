@@ -1,13 +1,12 @@
-import { useNavigate } from 'react-router-dom'
+
 
 export default function LandingPage(){
-
-    const navigate = useNavigate();
-    const direcionaSistema = () =>{
-        navigate('/cadastro-produto');
-    }
-
     return(
-        <button onClick={direcionaSistema}>Começar</button>
+        <div className="container text-center">
+            <h2 className="text-primary">Sistema de Supply chain da MStarSupply</h2>
+            <video width="600" height="400" autoPlay>
+                <source src="src/assets/TelaInicial.mp4" type="video/mp4" />
+            </video>
+        </div>
     )
 }
