@@ -11,6 +11,7 @@ export default function NavBar(){
                     <ul className="navbar-nav">
                         <NavBarItem href="/" label="Home" />
                         <NavBarItem href="/cadastro-produto" label="Cadastro" />
+                        <NavBarItem href="/movimenta-estoque" label="Controle de estoque" />
                         <NavBarItem href="/movimentacao-produto-grafico" label="Gráfico" />
                         <NavBarItem href="/relatorio-movimentacao-produto" label="Relatório" />
                     </ul>

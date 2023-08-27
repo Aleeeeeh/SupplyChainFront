@@ -3,6 +3,7 @@ import LandingPage from '../views/LandingPage'
 import CadastroProduto from '../views/CadastroProduto'
 import MovimentacaoProdutosGrafico from '../views/MovimentacaoProdutosGrafico'
 import RelatorioDeMovimentacaoProdutos from '../views/RelatorioDeMovimentacaoProdutos'
+import EntradaESaidaProduto from '../views/EntradaESaidaProduto'
 
 export default function Rotas()
 {
@@ -13,6 +14,7 @@ export default function Rotas()
             <Route path='/cadastro-produto' element={<CadastroProduto />} />
             <Route path='/movimentacao-produto-grafico' element={<MovimentacaoProdutosGrafico />} />
             <Route path='/relatorio-movimentacao-produto' element={<RelatorioDeMovimentacaoProdutos />} />
+            <Route path='/movimenta-estoque' element={<EntradaESaidaProduto />} />
         </Routes>
     </BrowserRouter>
     )

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Card from "../componentes/Card";
 import FormGroup from "../componentes/FormGroup";
+import produtoService from "../services/service/produtoService";
 import * as mensagem from '../componentes/toastr'
 
 export default function CadastroProduto(){
@@ -10,8 +11,32 @@ export default function CadastroProduto(){
     const[tipoProduto, setTipoProduto] = useState('')
     const[descricao, setDescricao] = useState('')
 
+    const service = new produtoService();
+
     const cadastrarProduto = () =>{
-        mensagem.mensagemSucesso("Produto cadastrado com sucesso")
+        const objetoProduto = {
+            nome: nomeProduto,
+            numeroRegistro: parseInt(numeroRegistro),
+            fabricante: fabricante,
+            tipoProduto: tipoProduto,
+            descricao: descricao
+        }
+        
+        try{
+            service.validacaoCadastro(objetoProduto)
+        }catch(error:any){
+            const mensagens = error.mensagens;
+            mensagens.forEach((msg:string)=>mensagem.mensagemErro(msg));
+            return false;
+        }
+
+        service.salvar(objetoProduto)
+        .then(response=>{
+            mensagem.mensagemSucesso("Produto cadastrados com sucesso");
+        })
+        .catch(error =>{
+            mensagem.mensagemErro(error.response);
+        })
     }
 
     return(
