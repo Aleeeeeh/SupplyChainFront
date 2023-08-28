@@ -33,6 +33,12 @@ export default function CadastroProduto(){
         service.salvar(objetoProduto)
         .then(response=>{
             mensagem.mensagemSucesso("Produto cadastrados com sucesso");
+            setNomeProduto('');
+            setNumeroRegistro('');
+            setFabricante('');
+            setTipoProduto('');
+            setDescricao('');
+            console.log(response.data);
         })
         .catch(error =>{
             mensagem.mensagemErro(error.response);

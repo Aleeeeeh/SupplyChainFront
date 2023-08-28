@@ -1,8 +1,9 @@
-import {useState} from 'react'
+import {useEffect, useState} from 'react'
 import Card from "../componentes/Card";
 import { Calendar } from 'primereact/calendar';
 import FormGroup from '../componentes/FormGroup';
 import utilitarios from '../utils/utilitarios'
+import produtoService from '../services/service/produtoService';
 import {Chart as ChartJS, ArcElement, Tooltip, Legend} from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 
@@ -10,10 +11,37 @@ ChartJS.register(Tooltip,Legend,ArcElement);
 
 export default function MovimentacaoProdutosGrafico(){
     const[data, setData] = useState<any>('');
-    const[idProduto,setIdProduto] = useState<any>('');
-    const[descricaoProduto,setDescricaoProduto] = useState('Alcool');
+    const[produtos,setProdutos] = useState<object[]>([]);
+    const[idProduto,setIdProduto] = useState<object[]>([]);
+    const[totalEntrada,setTotalEntrada] = useState(0);
+    const[totalSaida,setTotalSaida] = useState(0);
 
     const service = new utilitarios();
+    const serviceProd = new produtoService();
+
+    useEffect(() =>{
+        serviceProd.consultarProdutos()
+        .then(response => {
+            setProdutos(response.data);
+        })
+    },[])
+
+    if(data != null && idProduto != null){
+        var dataEmString = service.converterObjetoEmString(data);
+        var objetoDataFormatadoEmPosicoes = service.converterStringEmObjetoFormatado(dataEmString);
+        var mes = service.retornarNumeroDoMes(objetoDataFormatadoEmPosicoes[1])
+        var ano = objetoDataFormatadoEmPosicoes[3]
+
+        serviceProd.consultarEntradaProdutoMes(mes,ano,idProduto)
+        .then(response =>{
+            setTotalEntrada(response.data);
+        })
+
+        serviceProd.consultarSaidaProdutoMes(mes,ano,idProduto)
+        .then(response =>{
+            setTotalSaida(response.data);
+        })
+    }
 
     const dataGrafico = {
         labels: [
@@ -21,8 +49,8 @@ export default function MovimentacaoProdutosGrafico(){
           'Total entradas'
         ],
         datasets: [{
-          label: ""+[descricaoProduto]+"",
-          data: [200, 300],
+          label: "Quantidade",
+          data: [totalSaida, totalEntrada],
           backgroundColor: [
             'rgb(255, 99, 132)',
             'rgb(54, 162, 235)',
@@ -31,14 +59,6 @@ export default function MovimentacaoProdutosGrafico(){
           hoverOffset: 4,
         }]
       };
-
-    if(data != null && idProduto != ""){
-        var dataEmString = service.converterObjetoEmString(data);
-        var objetoDataFormatadoEmPosicoes = service.converterStringEmObjetoFormatado(dataEmString);
-        var mes = service.retornarNumeroDoMes(objetoDataFormatadoEmPosicoes[1])
-        var ano = objetoDataFormatadoEmPosicoes[3]
-        console.log(`Mes ${mes} e ano ${ano} e produto ${idProduto}`)
-    }
 
     return(
         <Card title="Gráfico de movimentação de produtos por mês">
@@ -54,9 +74,13 @@ export default function MovimentacaoProdutosGrafico(){
                                 id="inputIdProduto" 
                                 onChange={(e:any) => setIdProduto(e.target.value)}>
                             <option value="">Selecione</option>
-                            <option value="1">Alcool</option>
-                            <option value="2">Desinfetante</option>
-                            <option value="3">Luvas</option>
+                            {
+                                produtos.map((prod:any) =>{
+                                    return(
+                                        <option key={prod.id} value={prod.id}>{prod.nome}</option>
+                                    )
+                                })
+                            }
                         </select>
                     </FormGroup>
                 </div>

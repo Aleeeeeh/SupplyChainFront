@@ -1,12 +1,12 @@
 export default class utilitarios{
 
-    converterObjetoEmString = (objeto: object) =>{
+    converterObjetoEmString = (objeto: any) =>{
         var objetoConvertidoEmString = objeto.toString();
 
         return objetoConvertidoEmString;
     }
 
-    converterStringEmObjetoFormatado = (dataEmString: string) =>{
+    converterStringEmObjetoFormatado = (dataEmString: any) =>{
         var objetoFormatado = dataEmString.split(" ");
 
         return objetoFormatado;
@@ -44,29 +44,29 @@ export default class utilitarios{
     retornarNumeroDoMes = (nomeMes:string) =>{
         switch(nomeMes){
             case "Jan":
-                return 1;
+                return '01';
             case "Feb":
-                return 2;
+                return '02';
             case "Mar":
-                return 3;
+                return '03';
             case "Apr":
-                return 4;
+                return '04';
             case "May":
-                return 5;
+                return '05';
             case "Jun":
-                return 6;
+                return '06';
             case "Jul":
-                return 7;
+                return '07';
             case "Aug":
-                return 8;
+                return '08';
             case "Sep":
-                return 9;
+                return '09';
             case "Oct":
-                return 10;
+                return '10';
             case "Nov":
-                return 11;
+                return '11';
             case "Dec":
-                return 12;
+                return '12';
             default:
                 return null;
         }
