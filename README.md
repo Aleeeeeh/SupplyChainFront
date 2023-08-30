@@ -30,7 +30,7 @@ Axios <br />
 ![image](https://github.com/Aleeeeeh/SupplyChainFront/assets/58706720/7ab579bc-6301-4b62-815c-bc0aab517259)
 
 #### Autor
-Alefe Ferreira da Silva
+Alefe Ferreira da Silva <br />
 https://www.linkedin.com/in/alefe-ferreira-322125235/
 
 
