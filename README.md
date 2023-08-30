@@ -1,27 +1,28 @@
-# React + TypeScript + Vite
+# Sistema de SupplyChain MStarSuplly :truck:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Sistema de Supply chain completo, conta com cadastro de produto por categoria, número de registro, descrição e o fabricante. É possível realizar toda a movimentação dos produtos dando entrada
+e saida e informando o local, data e hora. Sistema também conta com gráfico com filtro por período e mês de cada produto, exibindo o total das entradas e saídas. E por último mas não menos
+importante, também é possível gerar relatório em PDF das entradas e saídas do mês.
 
-Currently, two official plugins are available:
+## Tecnologias utilizadas 💻
+React JS com vite <br />
+Typescript <br />
+PrimeReact <br />
+Bootstrap <br />
+Axios <br />
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Telas
+#### Tela inicial
+![image](https://github.com/Aleeeeeh/SupplyChainFront/assets/58706720/ecff3348-7fe6-49e1-afe8-aa9e965caaab)
 
-## Expanding the ESLint configuration
+#### Cadastro de produto
+![image](https://github.com/Aleeeeeh/SupplyChainFront/assets/58706720/2df7d9b4-b21a-4698-9941-1c0fabfc18c0)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+#### Movimentação de mercadoria
+![image](https://github.com/Aleeeeeh/SupplyChainFront/assets/58706720/992b0d12-1388-4ea6-953e-5e8a898b1a91)
 
-- Configure the top-level `parserOptions` property like this:
+#### Autor
+Alefe Ferreira da Silva
+https://www.linkedin.com/in/alefe-ferreira-322125235/
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
