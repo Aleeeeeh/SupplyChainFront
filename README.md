@@ -21,6 +21,14 @@ Axios <br />
 #### Movimentação de mercadoria
 ![image](https://github.com/Aleeeeeh/SupplyChainFront/assets/58706720/992b0d12-1388-4ea6-953e-5e8a898b1a91)
 
+#### Gráfico
+![image](https://github.com/Aleeeeeh/SupplyChainFront/assets/58706720/0fb7c00f-b540-4029-b1bf-af87af833ed2)
+
+#### Relatório em PDF
+![image](https://github.com/Aleeeeeh/SupplyChainFront/assets/58706720/d944dc3e-47fb-412d-9095-f4b854e0645d)
+
+![image](https://github.com/Aleeeeeh/SupplyChainFront/assets/58706720/7ab579bc-6301-4b62-815c-bc0aab517259)
+
 #### Autor
 Alefe Ferreira da Silva
 https://www.linkedin.com/in/alefe-ferreira-322125235/
